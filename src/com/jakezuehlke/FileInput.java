@@ -6,7 +6,13 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * @author Matt Green, Jake Zuehlke
+ * @author Matt Green
+ * @author Jake Zuehlke
+ */
+
+/**
+ * FileInput: <br>
+ *     This class buffer reads a file into an object and throws appropriate exceptions
  */
 public class FileInput
 {
@@ -26,22 +32,11 @@ public class FileInput
         }
     }
 
-    public void fileRead()
-    {
-        String line;
-        try
-        {
-            while ((line = in.readLine()) != null)
-            {
-                System.out.println(line);
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println("File Write Error: " + fileName + " " + e);
-        }
-    }
-
+    /**
+     * fileReadLine: <br>
+     *     This class simply reads the next line of the FileInput object.  Throws exception if it cannot.
+     * @return String of file's line contents
+     */
     public String fileReadLine()
     {
         try
@@ -51,11 +46,15 @@ public class FileInput
         }
         catch (Exception e)
         {
-            System.out.println("File Write Error: " + fileName + " " + e);
+            System.out.println("File Read Error: " + fileName + " " + e);
             return null;
         }
     }
 
+    /**
+     * fileClose: <br>
+     *     This method closes the FileInput object, or throws an exception with stack trace if it cannot.
+     */
     public void fileClose()
     {
         if (in != null)
