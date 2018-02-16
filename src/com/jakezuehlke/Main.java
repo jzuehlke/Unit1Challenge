@@ -11,8 +11,8 @@ public class Main
      * with each country.
      */
 
-    private static String stuffLine;
     private static String citiesLine;
+    private static String stuffLine;
     private final static FileInput countries = new FileInput("places.csv");
     private final static FileInput cities = new FileInput("places.csv");
     private final static FileInput stuff = new FileInput("stuff.csv");
@@ -92,14 +92,14 @@ public class Main
 
             //fields[0] represents country name in places.csv.
             //If it is the same, accumulate nums[0] and read next line
-            if (!(fields[0].equals(country)))
-            {
-                done = true;
-            }
-            else if (fields[0].equals(country))
+            if (fields[0].equals(country))
             {
                 nums[0]++;
                 citiesLine = cities.fileReadLine();
+            }
+            else if (!(fields[0].equals(country)))
+            {
+                done = true;
             }
         }
     }
@@ -130,14 +130,14 @@ public class Main
 
             //fields[0] represents country name in stuff.csv.
             //If it is the same, accumulate nums[1] and read next line
-            if (!(fields[0].equals(country)))
-            {
-                done = true;
-            }
-            else if (fields[0].equals(country))
+            if (fields[0].equals(country))
             {
                 nums[1]++;
                 stuffLine = stuff.fileReadLine();
+            }
+            else if (!(fields[0].equals(country)))
+            {
+                done = true;
             }
         }
     }
